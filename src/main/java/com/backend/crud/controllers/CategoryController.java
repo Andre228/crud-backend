@@ -1,48 +1,27 @@
 package com.backend.crud.controllers;
 
+import com.backend.crud.model.Category;
+import com.backend.crud.repositories.CategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
- * Created by Андрей on 22.09.2020.
+ * Created by Андрей on 21.10.2020.
  */
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
-@CrossOrigin
-public class CategoryController implements BaseController {
+public class CategoryController {
+    @Autowired
+    private CategoryRepository categoryRepository;
 
-
-    @GetMapping("/categories")
-    @ResponseBody
-    @Override
-    public ResponseEntity<?> index(Long id) {
-        return null;
-    }
-
-    @Override
-    public void create() {
-
-    }
-
-    @Override
-    public void store() {
-
-    }
-
-    @Override
-    public void edit() {
-
-    }
-
-    @Override
-    public void update() {
-
-    }
-
-    @Override
-    public void destroy() {
-
+    @GetMapping("/categories/all")
+    public List<Category> getAllCategories() {
+        List<Category> categories = (List<Category>)categoryRepository.findAll();
+        return categories;
     }
 }

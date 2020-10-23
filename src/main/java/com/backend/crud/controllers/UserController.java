@@ -18,42 +18,10 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
-public class UserController implements BaseController {
+public class UserController {
 
     @Autowired
     private UserRepository userRepository;
 
 
-    @GetMapping("/users")
-    @ResponseBody
-    @Override
-    public ResponseEntity<?> index(@RequestParam(required = false) Long id) {
-       User user = userRepository.findById(id).get();
-       return new ResponseEntity<User>(user, HttpStatus.OK);
-    }
-
-    @Override
-    public void create() {
-
-    }
-
-    @Override
-    public void store() {
-
-    }
-
-    @Override
-    public void edit() {
-
-    }
-
-    @Override
-    public void update() {
-
-    }
-
-    @Override
-    public void destroy() {
-
-    }
 }
