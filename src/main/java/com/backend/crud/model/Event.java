@@ -13,9 +13,10 @@ public class Event implements Serializable {
 
 
     @Id
-    @ManyToOne
-    @JoinColumn(name="post_id", nullable=false)
-    private Post post;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false, unique = true)
+    private Long id;
+
     @Column
     private String description;
     @Column
@@ -27,6 +28,17 @@ public class Event implements Serializable {
     @Column
     private Date updated_at;
 
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "post_id", nullable = false)
+    private Post post;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Post getPost() {
         return post;

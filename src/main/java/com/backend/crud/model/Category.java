@@ -1,9 +1,10 @@
 package com.backend.crud.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by Андрей on 21.10.2020.
@@ -15,29 +16,39 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "category_id", updatable = false, nullable = false, unique=true)
+    @Column(name = "id", updatable = false, nullable = false, unique=true)
     private Long id;
+    @Column
+    private String title;
     @Column
     private String slug;
     @Column
     private String description;
     @Column
-    private Long parent_id;
+    private Long parentId;
     @Column
-    private Date created_at;
+    private String createdAt;
     @Column
-    private Date updated_at;
+    private String updatedAt;
     @Column
-    private Date deleted_at;
-    @OneToMany(mappedBy = "category")
-    private Set<Post> posts = new HashSet<>();
+    private String deletedAt;
+//    @OneToMany(mappedBy = "category", fetch=FetchType.LAZY)
+//    private Set<Post> posts = new HashSet<>();
+//
+//    public Set<Post> getPosts() {
+//        return posts;
+//    }
+//
+//    public void setPosts(Set<Post> posts) {
+//        this.posts = posts;
+//    }
 
-    public Set<Post> getPosts() {
-        return posts;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPosts(Set<Post> posts) {
-        this.posts = posts;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Long getId() {
@@ -64,36 +75,36 @@ public class Category {
         this.description = description;
     }
 
-    public Long getParent_id() {
-        return parent_id;
+    public Long getParentId() {
+        return parentId;
     }
 
-    public void setParent_id(Long parent_id) {
-        this.parent_id = parent_id;
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
     }
 
-    public Date getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public Date getUpdated_at() {
-        return updated_at;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(Date updated_at) {
-        this.updated_at = updated_at;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
-    public Date getDeleted_at() {
-        return deleted_at;
+    public String getDeletedAt() {
+        return deletedAt;
     }
 
-    public void setDeleted_at(Date deleted_at) {
-        this.deleted_at = deleted_at;
+    public void setDeletedAt(String deletedAt) {
+        this.deletedAt = deletedAt;
     }
 
 

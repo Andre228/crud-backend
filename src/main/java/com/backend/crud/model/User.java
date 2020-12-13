@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Андрей on 23.09.2020.
@@ -16,8 +17,7 @@ import java.util.List;
 @Table(name= "\"user\"")
 public class User implements UserDetails {
 
-    public User() {
-    }
+    public User() {}
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Authority> authorities;
@@ -26,34 +26,43 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, nullable = false, unique=true)
     private Long id;
+
     @Column
     private String username;
     @Column
     private String email;
     @Column
-    private String email_verified_at;
+    private String first_name;
+    @Column
+    private String last_name;
     @Column
     private String password;
-    @Column
-    private String remember_token;
     @Column
     private Date created_at;
     @Column
     private Date updated_at;
-    @Column
-    private boolean is_confirmed;
-    @Column
-    private String confirmation_token;
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Post post;
 
-    public Post getPost() {
-        return post;
-    }
+//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+//    private Set<Post> posts;
+//
+//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+//    private Set<Comment> comments;
 
-    public void setPost(Post post) {
-        this.post = post;
-    }
+//    public Set<Comment> getComments() {
+//        return comments;
+//    }
+//
+//    public void setComments(Set<Comment> comments) {
+//        this.comments = comments;
+//    }
+//
+//    public Set<Post> getPosts() {
+//        return posts;
+//    }
+//
+//    public void setPosts(Set<Post> posts) {
+//        this.posts = posts;
+//    }
 
     public Long getId() {
         return id;
@@ -77,14 +86,6 @@ public class User implements UserDetails {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getEmail_verified_at() {
-        return email_verified_at;
-    }
-
-    public void setEmail_verified_at(String email_verified_at) {
-        this.email_verified_at = email_verified_at;
     }
 
     @Override
@@ -125,14 +126,6 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public String getRemember_token() {
-        return remember_token;
-    }
-
-    public void setRemember_token(String remember_token) {
-        this.remember_token = remember_token;
-    }
-
     public Date getCreated_at() {
         return created_at;
     }
@@ -149,20 +142,20 @@ public class User implements UserDetails {
         this.updated_at = updated_at;
     }
 
-    public boolean isIs_confirmed() {
-        return is_confirmed;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setIs_confirmed(boolean is_confirmed) {
-        this.is_confirmed = is_confirmed;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getConfirmation_token() {
-        return confirmation_token;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setConfirmation_token(String confirmation_token) {
-        this.confirmation_token = confirmation_token;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
 

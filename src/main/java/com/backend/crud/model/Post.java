@@ -2,6 +2,7 @@ package com.backend.crud.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by Андрей on 21.10.2020.
@@ -15,18 +16,17 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, nullable = false, unique=true)
     private Long id;
+
     @Column
     private String slug;
+    @Column
+    private String alias;
     @Column
     private String description;
     @Column
     private String title;
     @Column
     private String excerpt;
-    @Column
-    private String content_raw;
-    @Column
-    private String content_html;
     @Column
     private boolean is_published;
     @Column
@@ -37,12 +37,44 @@ public class Post {
     private Date updated_at;
     @Column
     private Date deleted_at;
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     private Category category;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+
+    @OneToOne(fetch = FetchType.EAGER, targetEntity = User.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private User user;
+
+//    @OneToMany(mappedBy = "post")
+//    private Set<Event> event;
+//
+    @OneToMany(mappedBy = "post")
+    private Set<Comment> comments;
+//
+//    public Set<Comment> getComments() {
+//        return comments;
+//    }
+//
+//    public void setComments(Set<Comment> comments) {
+//        this.comments = comments;
+//    }
+//
+//    public Set<Event> getEvent() {
+//        return event;
+//    }
+//
+//    public void setEvent(Set<Event> event) {
+//        this.event = event;
+//    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
 
     public Category getCategory() {
         return category;
@@ -98,22 +130,6 @@ public class Post {
 
     public void setExcerpt(String excerpt) {
         this.excerpt = excerpt;
-    }
-
-    public String getContent_raw() {
-        return content_raw;
-    }
-
-    public void setContent_raw(String content_raw) {
-        this.content_raw = content_raw;
-    }
-
-    public String getContent_html() {
-        return content_html;
-    }
-
-    public void setContent_html(String content_html) {
-        this.content_html = content_html;
     }
 
     public boolean isIs_published() {
