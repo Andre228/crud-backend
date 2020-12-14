@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by Андрей on 21.10.2020.
@@ -32,6 +33,9 @@ public class Category {
     private String updatedAt;
     @Column
     private String deletedAt;
+
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private Set<Tour> tours;
 //    @OneToMany(mappedBy = "category", fetch=FetchType.LAZY)
 //    private Set<Post> posts = new HashSet<>();
 //

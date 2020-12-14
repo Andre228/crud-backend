@@ -28,6 +28,7 @@ public class EventController {
 
     @GetMapping(value = "/events/all/{id}")
     public List<Event> getAllEventsByPost(@PathVariable("id") Long postId) {
+        System.out.println(postId);
         List<Event> events = eventRepository.findAllByPost(postId);
         return events;
     }
@@ -58,7 +59,7 @@ public class EventController {
             eventRepository.delete(deletingEvent);
             return ResponseEntity.ok().body(true);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("It is impossible to delete this category because it contains some posts");
+            return ResponseEntity.badRequest().body("It is impossible to delete this event because it contains some posts");
         }
     }
 }

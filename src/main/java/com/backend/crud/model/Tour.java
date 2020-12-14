@@ -1,5 +1,8 @@
 package com.backend.crud.model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -19,9 +22,10 @@ public class Tour {
     @Column
     private String description;
     @Column
-    private Date startDate;
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class)
+    private Date start_date;
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "category_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Category category;
 
     public Long getId() {
@@ -48,12 +52,12 @@ public class Tour {
         this.description = description;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getStart_date() {
+        return start_date;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setStart_date(Date start_date) {
+        this.start_date = start_date;
     }
 
     public Category getCategory() {

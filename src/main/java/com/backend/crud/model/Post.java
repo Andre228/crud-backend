@@ -49,7 +49,7 @@ public class Post {
 //    @OneToMany(mappedBy = "post")
 //    private Set<Event> event;
 //
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private Set<Comment> comments;
 //
 //    public Set<Comment> getComments() {
