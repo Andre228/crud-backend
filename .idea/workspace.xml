@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ad5afca-e5b8-4c07-aa80-871f7f5c81a6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/backend/crud/controllers/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/backend/crud/controllers/UserController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/backend/crud/controllers/EventController.java" afterPath="$PROJECT_DIR$/src/main/java/com/backend/crud/controllers/EventController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/backend/crud/controllers/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/backend/crud/controllers/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/backend/crud/model/Category.java" afterPath="$PROJECT_DIR$/src/main/java/com/backend/crud/model/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/backend/crud/model/Post.java" afterPath="$PROJECT_DIR$/src/main/java/com/backend/crud/model/Post.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/backend/crud/model/Tour.java" afterPath="$PROJECT_DIR$/src/main/java/com/backend/crud/model/Tour.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -858,7 +854,7 @@
       <workItem from="1607685039116" duration="5423000" />
       <workItem from="1607792579630" duration="4949000" />
       <workItem from="1607858665487" duration="3723000" />
-      <workItem from="1607960022463" duration="6592000" />
+      <workItem from="1607960022463" duration="6623000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1601661072996</created>
@@ -888,11 +884,18 @@
       <option name="project" value="LOCAL" />
       <updated>1607868307502</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added crud operations for tours">
+      <created>1607969240590</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607969240590</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220034000" />
+    <option name="totallyTimeSpent" value="220065000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1454" height="867" extended-state="0" />
@@ -990,7 +993,8 @@
     <MESSAGE value="1" />
     <MESSAGE value="added base structure" />
     <MESSAGE value="added crud operations for category, post, event and comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="added crud operations for category, post, event and comments" />
+    <MESSAGE value="added crud operations for tours" />
+    <option name="LAST_COMMIT_MESSAGE" value="added crud operations for tours" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
